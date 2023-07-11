@@ -386,6 +386,7 @@ export default {
   async mounted() {
     const deviceList = await this.api.getDeviceList()
     if (deviceList.length === 0) {
+      console.log("we are in inigialization mode!")
       this.initializationMode = true
     }
     deviceList.forEach((name) => {
@@ -401,7 +402,6 @@ export default {
       this.selectedDevice = 'all'
       await this.reload()
       this.darkMode = true
-      this.reloadOn = true
     })
     this.dataManager = new DataManager(this.api, this.settings)
   },
