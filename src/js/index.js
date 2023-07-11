@@ -10,6 +10,8 @@ import { createApp } from 'vue'
 import { createI18n } from 'vue-i18n'
 
 import Api from './api'
+import FakeApi from './fakeapi'
+import FakeConfig from './fakeconfig'
 import App from '../view/App.vue'
 import { messages as msg } from '../i18n/messages'
 
@@ -33,11 +35,16 @@ client.onreadystatechange = async () => {
       messages: msg,
     })
 
-    const apiUrl = serverAddr.concat('/api')
-    const api = new Api(apiUrl)
+    let config = new FakeConfig()
+    let api = new FakeApi()
 
-    const config = await api.getApiConfig()
-
+    if (serverAddr === null) {
+      console.warn("No server_addr headers found. Run this app with httpservice!")
+    } else {
+      const apiUrl = serverAddr.concat('/api')
+      api = new Api(apiUrl)
+      config = await api.getApiConfig()
+    }
     app.config.globalProperties.settings = config
     app.config.globalProperties.api = api
     app.config.globalProperties.isOnStage = function(item) {

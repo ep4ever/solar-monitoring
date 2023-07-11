@@ -21,7 +21,7 @@
     "css-loader": "^6.7.4",
     "css-minimizer-webpack-plugin": "^5.0.0",
     "eslint": "^8.43.0",
-    "eslint-plugin-vue": "^9.14.1",
+    "eslint-plugin-vue": "^9.15.1",
     "eslint-webpack-plugin": "^4.0.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.1",
@@ -39,6 +39,7 @@
     "yamljs": "^0.3.0"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
     "@popperjs/core": "^2.11.7",
     "ag-grid-community": "^29.3.5",
     "ag-grid-vue3": "^29.3.5",
@@ -47,7 +48,6 @@
     "chart.js": "^4.3.0",
     "vue": "^3.3.4",
     "vue-chartjs": "^5.2.0",
-    "vue-i18n": "^9.2.2",
-    "@fortawesome/fontawesome-free": "^6.4.0"
+    "vue-i18n": "^9.2.2"
   }
 }

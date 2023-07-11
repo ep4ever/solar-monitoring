@@ -157,7 +157,10 @@ export default class DataManager {
     let ratedVoltage = 0
 
     const deviceCount = device === 'all' ? this.settings.devices.length : 1
-    const upper = this.rowDatas.length - 1;
+    let upper = this.rowDatas.length - 1
+    if (upper === 0) {
+        upper = 1
+    }
     const lower = upper - deviceCount;
 
     for (let i = lower; i < upper; i += 1) {
