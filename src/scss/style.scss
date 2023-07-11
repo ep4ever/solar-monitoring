@@ -1,0 +1,96 @@
+@import "~bootstrap/scss/bootstrap";
+@import "ag-grid-community/styles/ag-grid.css";
+@import "ag-grid-community/styles/ag-theme-alpine.css";
+
+.ep4ever-navbar-container {
+  pointer-events: none;
+  background-color: #5b5e65;
+  margin-bottom: 10px;
+  span {
+    color: azure;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: medium;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+}
+
+#ep4ever-navbar {
+  padding: 0;
+  margin: 0;
+  z-index: 99999999;
+  padding-top: 0 !important;
+  .navbar-brand {
+    padding: 0;
+    color: azure;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    height: 36px;
+  }
+  .col-lg-7 {
+    padding-left: 60px;
+  }
+}
+
+.resizable-container-normal {
+  width: 100%;
+  height: 72vh;
+  background-color: gainsboro;
+}
+.resizable-container-normal-table {
+  width: 100%;
+  height: 68vh;
+}
+.resizable-container-extended {
+  height: 95vh;
+  background-color: gainsboro;
+}
+.resizable-container-extended-table {
+  height: 93vh;
+}
+.resizable-container-child {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.panel-actions {
+  margin-top: -20px;
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.panel-actions a {
+  color:#333;
+}
+
+.panel-fullscreen {
+    display: block;
+    z-index: 9999;
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: auto;
+}
+
+.card-header {
+  background-color: #5b5e65;
+  height: 36px;
+}
+
+.fa-up-right-and-down-left-from-center {
+  color: white;
+}
+
+.ep4ever-background-dark {
+  background-color: #333;
+}
+
+.ep4ever-background-light {
+  background-color: cornsilk;
+}
