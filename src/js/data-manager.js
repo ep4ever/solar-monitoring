@@ -60,6 +60,9 @@ export default class DataManager {
   }
 
   getBatteryVoltage() {
+    if (isNaN(this.batteryVoltage)) {
+      this.batteryVoltage = 0
+    }
     return this.batteryVoltage.toFixed(2)
   }
 
