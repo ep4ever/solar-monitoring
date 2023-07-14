@@ -88,13 +88,6 @@
               </select>
             </div>
             <div class="col-sm-4 text-end">
-              <button
-                class="btn btn-secondary btn-sm"
-                @click="onBtnEditConfigurationClick"
-              >
-                <i class="fa-solid fa-cog" />
-                Edit configuration...
-              </button>
             </div>
           </div>
           <div class="row m-1">
@@ -296,7 +289,6 @@
       </div>
     </div>
   </div>
-  <DlgConfig ref="dlgconfig" />
 </template>
 
 <script lang="js">
@@ -304,14 +296,12 @@
 import DataManager from '../js/data-manager'
 import GridView from './GridView.vue'
 import ChartLineView from './ChartLineView.vue'
-import DlgConfig from './DlgConfig.vue'
 
 export default {
   name: 'App',
   components: {
     GridView,
     ChartLineView,
-    DlgConfig,
   },
   props: [],
   data() {
@@ -389,8 +379,8 @@ export default {
       console.log("we are in inigialization mode!")
       this.initializationMode = true
     }
-    deviceList.forEach((name) => {
-      this.devices.push({ text: name, value: name })
+    deviceList.forEach((device) => {
+      this.devices.push({ text: device, value: device })
     })
     const dataSourceList = await this.api.getDatasourceList()
     dataSourceList.forEach((name) => {
@@ -511,9 +501,6 @@ export default {
       if (this.isOnStage(this.$refs.grid)) {
         this.$refs.grid.exportGrid()
       }
-    },
-    onBtnEditConfigurationClick() {
-      this.$refs.dlgconfig.showEditor()
     },
     updateTimeRange() {
       this.$refs.grid.setFiltering(this.timeStart, this.timeEnd)

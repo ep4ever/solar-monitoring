@@ -43,7 +43,7 @@ export default class DataManager {
     if (device === 'all') {
       for (let i = 0; i < this.settings.devices.length; i += 1) {
         const d = this.settings.devices[i]
-        deviceList.push(d.name)
+        deviceList.push(d)
       }
     } else {
       deviceList.push(device)

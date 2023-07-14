@@ -19,20 +19,10 @@ export default class Api {
     return response.data
   }
 
-  async saveApiConfig(configSettings) {
-    const json = JSON.stringify(configSettings)
-    const response = await this.api.post('/config', json)
-    return response
-  }
-
   async getDeviceList() {
-    const deviceList = []
     try {
       const response = await this.api.get('/device/list')
-      response.data.forEach((el) => {
-        deviceList.push(el.name)
-      })
-      return deviceList
+      return response.data
     } catch {
       return []
     }
