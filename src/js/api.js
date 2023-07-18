@@ -72,7 +72,12 @@ export default class Api {
   }
 
   async getNightEnvValue() {
-    const response = await this.api.get('/nightenv')
-    return response.data
+    try {
+      const response = await this.api.get('/nightenv')
+      return response.data
+    } catch(e) {
+      console.warn(e)
+      return '0'
+    }
   }
 }

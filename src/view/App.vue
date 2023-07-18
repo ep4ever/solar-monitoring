@@ -386,11 +386,10 @@ export default {
     dataSourceList.forEach((name) => {
       this.datasources.push({ text: name, value: name })
     })
-    // this.switchTheme(false)
     this.$nextTick(async () => {
       window.addEventListener('resize', this.onResize)
       this.selectedDevice = 'all'
-      await this.reload()
+      this.reloadOn = true
       this.darkMode = true
     })
     this.dataManager = new DataManager(this.api, this.settings)
