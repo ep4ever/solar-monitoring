@@ -1,25 +1,5 @@
 <template>
-  <div v-show="nightMode">
-    <div
-      v-show="batteryVoltage !== ''"
-      class="container h-100 text-center"
-    >
-      <div
-        style="font-size: 96pt;color: darkslategrey"
-        class="row h-100"
-      >
-        <form class="col-12">
-          <div class="form-group">
-            <label>{{ batteryVoltage }} V</label>
-          </div>
-          <div class="form-group">
-            <label>{{ timestamp }}</label>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-  <div v-show="!nightMode">
+  <div>
     <div class="container-fluid ep4ever-navbar-container">
       <nav
         id="ep4ever-navbar"
@@ -350,13 +330,6 @@ export default {
         })
       }
       return label
-    },
-    nightMode() {
-      if (!this.isOnStage(this.dataManager)) {
-        // if no manager loaded use it has a overlay
-        return true
-      }
-      return this.dataManager.containsData === false
     },
   },
   watch: {
