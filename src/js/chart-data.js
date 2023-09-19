@@ -1,16 +1,16 @@
 export default class ChartData {
-  labels = []
-  datasets = []
-  chartDate = null
-  startTime = null
-  endTime = null
-  datasetCount = 0
-  totalValues = 0
-  chartColorsLight = []
-  chartColorsDark = []
-  isDarMode = false
 
   constructor() {
+    this.labels = []
+    this.datasets = []
+    this.chartDate = null
+    this.startTime = null
+    this.endTime = null
+    this.datasetCount = 0
+    this.totalValues = 0
+    this.chartColorsLight = []
+    this.chartColorsDark = []
+    this.isDarMode = false
     this.chartColorsLight = [
       'rgb(26, 35, 126)',
       'rgb(27, 94, 32)',

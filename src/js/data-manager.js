@@ -1,22 +1,15 @@
 export default class DataManager {
-  api
-  settings
-  datas
-  rowDatas
-  reloadOn
-  lastError
-  batteryVoltage
-  totalWatt
-  totalCurrent
-  containsData
 
   constructor(api, settings) {
     this.api = api
     this.settings = settings
-
     this.datas = []
     this.rowDatas = []
     this.reloadOn = false
+    this.lastError = null
+    this.batteryVoltage = null
+    this.totalWatt = null
+    this.totalCurrent = null
     this.containsData = false
   }
 

@@ -1,11 +1,8 @@
 export default class GridViewAdapter {
-  settings
-  useDateStampColumn = false
-  valueFormatterNumber
-  valueFormatterPct
 
   constructor(appSettings) {
     this.settings = appSettings
+    this.useDateStampColumn = false
     this.valueFormatterNumber = (params) => this.numberFormatter(
       params.value,
       this.settings.language,
