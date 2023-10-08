@@ -11,6 +11,7 @@ export default class DataManager {
     this.totalWatt = null
     this.totalCurrent = null
     this.containsData = false
+    this.consumerData = {}
   }
 
   formatNumber(value) {
@@ -57,6 +58,10 @@ export default class DataManager {
       this.batteryVoltage = 0
     }
     return this.batteryVoltage.toFixed(2)
+  }
+
+  getConsumerData() {
+    return this.consumerData
   }
 
   async load(device, source) {
@@ -186,5 +191,7 @@ export default class DataManager {
       this.rowDatas = []
       this.containsData = false
     }
+
+    this.consumerData = await this.api.getConsumerData()
   }
 }

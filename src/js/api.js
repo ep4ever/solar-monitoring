@@ -79,4 +79,14 @@ export default class Api {
       return '0'
     }
   }
+
+  async getConsumerData() {
+    try {
+      const response = await this.api.get('/consumer')
+      return response.data
+    } catch(e) {
+      console.warn(e)
+      return {}
+    }
+  }
 }

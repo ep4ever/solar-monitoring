@@ -1,31 +1,42 @@
 <template>
   <div>
     <div class="container-fluid ep4ever-navbar-container">
-      <nav
-        id="ep4ever-navbar"
-        class="navbar"
-      >
-        <a
-          class="navbar-brand"
-          href="#"
-        >
-          <span>{{ $t('message.solar_station_title') }}</span>
-        </a>
-        <div class="col-lg-7">
-          <span class="badge bg-secondary p-2">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <a
+            class="navbar-brand"
+            href="#"
+          >
+            <span>{{ $t('message.solar_station_title') }}</span>
+          </a>
+        </div>
+        <div class="col-4">
+          <span class="badge bg-secondary w-33">
             <i class="fa-solid fa-car-battery" />
             &nbsp;{{ batteryVoltage }} V
-          </span>&nbsp;
-          <span class="badge bg-secondary p-2">
+          </span>
+          <span class="badge bg-secondary w-33">
             <i class="fa-solid fa-solar-panel" />
             &nbsp;{{ totalWatt }} W
-          </span>&nbsp;
-          <span class="badge bg-secondary p-2">
+          </span>
+          <span class="badge bg-secondary w-33">
             <i class="fa-solid fa-bolt" />
             &nbsp;{{ totalCurrent }} A
           </span>
         </div>
-      </nav>
+        <div class="col-4">
+          <div class="float-end">
+            <span class="badge bg-secondary w-40">
+              <i class="fa-solid fa-plug" />
+              &nbsp;ET0:&nbsp;{{ consumerData.hv_active_power }} W
+            </span>
+            <span class="badge bg-secondary w-40">
+              <i class="fa-solid fa-plug" />
+              &nbsp;ET1:&nbsp;{{ consumerData.hv_active_power_etg1 }} W
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container-fluid">
       <div class="row">
@@ -301,6 +312,7 @@ export default {
       totalWatt: '',
       totalCurrent: '',
       batteryVoltage: '',
+      consumerData: { hv_active_power: 0, hv_active_power_etg1: 0 },
       timeStart: null,
       timeEnd: null,
       darkMode: false,
@@ -415,6 +427,7 @@ export default {
 
       let value = this.dataManager.getBatteryVoltage()
       this.batteryVoltage = this.dataManager.formatNumber(value)
+      this.consumerData = this.dataManager.getConsumerData()
 
       if (this.dataManager.containsData === false) {
         this.getNow()
